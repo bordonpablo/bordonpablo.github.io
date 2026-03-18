@@ -1,0 +1,122 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV (resume.cls)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{resume}
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[hidelinks]{hyperref} % keeps links clickable but not highlighted
+
+% Optional: slightly tighter lists (cleaner 1–2 pages)
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=2pt}
+
+\name{Pablo Bordon}
+\address{Cottbus, Brandenburg, Germany}
+\address{
+  \href{mailto:bordonpablo@gmail.com}{bordonpablo@gmail.com} \quad $\diamond$ \quad
+  \href{https://www.linkedin.com/in/pablo-bordon}{linkedin.com/in/pablo-bordon}
+}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+% PROFILE
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Profile}
+Geophysicist and researcher specializing in applied near-surface geophysics and data processing, with experience in ERT/EMI, GPR, and airborne radiometrics and magnetics. Background in machine learning for geophysical interpretation (pattern detection in GPR; inversion/interpretation support for EMI/ERT). Currently working at Brandenburg University of Technology (BTU), focusing on acquisition and processing workflows for resource and environmental applications.
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Experience}
+
+{\bf Researcher} \hfill {\em 2024 -- present}\\
+Raw Materials and Resource Management Department, {\bf Brandenburgische Technische Universit{\"a}t (BTU)}
+\begin{itemize}
+  \item Data acquisition and processing across ERT, EM/EMI, GPR, airborne radiometrics, and magnetics.
+  \item Collaboration in applied geophysics projects for resource exploration and environmental monitoring.
+\end{itemize}
+
+{\bf Director of Technical Project Coordination} \hfill {\em 2021 -- 2024}\\
+Department of Applied Sciences and Technology, {\bf National University of Moreno}
+\begin{itemize}
+  \item Coordinated R\&D projects and technical implementation, supporting innovation and environmental sustainability using geophysical prospecting methods.
+\end{itemize}
+
+{\bf Researcher -- Doctoral Fellow} \hfill {\em 2015 -- 2020}\\
+Applied and Environmental Geophysics Group, {\bf University of Buenos Aires}
+\begin{itemize}
+  \item Machine learning for geophysical interpretation: supervised detection of GPR patterns (e.g., pipe-flange reflections, mud-wall signatures).
+  \item Methods applied to EMI/ERT workflows to support interpretation and improve subsurface characterization.
+\end{itemize}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+% EDUCATION
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Education}
+
+{\bf University of Buenos Aires} \hfill {\em 2015 -- 2020}\\
+Ph.D. in Physics
+\begin{itemize}
+  \item Doctoral thesis: Methodological improvements in electrical and electromagnetic prospecting methods of subsurface geophysics.
+\end{itemize}
+
+{\bf University of Buenos Aires} \hfill {\em 2006 -- 2014}\\
+Bachelor's and Master's in Physics
+\begin{itemize}
+  \item Thesis: Methodologies to improve subsoil information obtained with coil-coil electromagnetic induction systems.
+\end{itemize}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+% PUBLICATIONS (Selected + Optional Full List)
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Research Publications}
+
+\textbf{Selected (most relevant)}
+\begin{itemize}
+  \item \textbf{Bord{\'o}n, P.}, Bonomo, N., Martinelli, P. (2019). Automatic detection of pipe-flange reflections in GPR data sections using supervised learning. \emph{Journal of Applied Geophysics}, 170, 103856. DOI: 10.1016/j.jappgeo.2019.103856.
+  \item \textbf{Bord{\'o}n, P.}, Martinelli, P., Zabala Medina, P., Bonomo, N., Ratto, N.R. (2020). Automatic detection of mud-wall signatures in ground-penetrating radar data. \emph{Archaeological Prospection}. DOI: 10.1002/arp.1799.
+\end{itemize}
+
+\vspace{2pt}
+\textbf{Conference proceedings (selected)}
+\begin{itemize}
+  \item \textbf{Bord{\'o}n, P.}, Martinelli, P., Bonomo, N. (2018). Automatic detection of reflections at ancient walls in GPR images using cascade classifiers. \emph{Near Surface Geoscience 2018 (EAGE)}. DOI: 10.3997/2214-4609.201802476.
+  \item \textbf{Bord{\'o}n, P.}, Martinelli, H.P., Bonomo, N.E. (2017). Identification of pipe flanges in GPR images using Neural Networks. \emph{Near Surface Geoscience 2017 (EAGE)}. DOI: 10.3997/2214-4609.201702089.
+\end{itemize}
+
+% If you want the complete list, keep it; otherwise comment this block out.
+% \vspace{2pt}
+% \textbf{Additional publications available upon request.}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+% SKILLS
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Technical Skills}
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{5ex}} p{0.72\textwidth} }
+Geophysical software & ReflexW, Res2DInv, Oasis Montaj, EM1DFM \\
+Programming & Python for scientific computing, data analysis, and development of reproducible geophysical workflows \\
+GIS & QGIS, ArcGIS \\
+\end{tabular}
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+% LANGUAGES
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Languages}
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+Spanish & Native \\
+English & C1 \\
+German & A2 \\
+\end{tabular}
+\end{rSection}
+
+\end{document}

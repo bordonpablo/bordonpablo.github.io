@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pablo Bordon — Geophysicist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1a2a3a;
+      --teal:   #2a7a8a;
+      --teal-lt:#3a9aaa;
+      --sand:   #f5f0e8;
+      --white:  #ffffff;
+      --gray:   #6b7280;
+      --light:  #f8f9fa;
+      --border: #e2e8f0;
+      --text:   #1e293b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: url('img/greenland02.jpg') center center / cover no-repeat;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(26,42,58,0.82) 0%, rgba(42,122,138,0.55) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      color: var(--white);
+    }
+    .hero-eyebrow {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 1rem;
+    }
+    .hero-name {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+    .hero-tagline {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.88);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1.5px solid rgba(255,255,255,0.5);
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .hero-links a:hover { background: rgba(255,255,255,0.15); border-color: white; }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.55);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1.5px;
+      height: 2.5rem;
+      background: rgba(255,255,255,0.4);
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    section { padding: 5rem 0; }
+    section:nth-child(even) { background: var(--light); }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── PROFILE ── */
+    .profile-text {
+      font-size: 1.05rem;
+      color: #374151;
+      max-width: 720px;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline { display: flex; flex-direction: column; gap: 2.5rem; }
+    .tl-item { display: grid; grid-template-columns: 7rem 1fr; gap: 0 1.8rem; }
+    .tl-date {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--teal);
+      padding-top: 0.2rem;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .tl-body { border-left: 2px solid var(--border); padding-left: 1.8rem; position: relative; }
+    .tl-body::before {
+      content: '';
+      position: absolute;
+      left: -5px; top: 0.45rem;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+    .tl-role {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .tl-org {
+      font-size: 0.88rem;
+      color: var(--gray);
+      margin-bottom: 0.7rem;
+    }
+    .tl-body ul {
+      padding-left: 1.2rem;
+      font-size: 0.93rem;
+      color: #374151;
+    }
+    .tl-body ul li { margin-bottom: 0.3rem; }
+
+    /* ── PUBLICATIONS ── */
+    .pub-group-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
+    .pub-group-title:first-child { margin-top: 0; }
+    .pub-list { display: flex; flex-direction: column; gap: 1.1rem; }
+    .pub-item {
+      padding: 1.2rem 1.4rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 0.5rem 0.5rem 0;
+      font-size: 0.92rem;
+      color: #374151;
+      line-height: 1.6;
+    }
+    .pub-item a {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .pub-item a:hover { text-decoration: underline; }
+    .pub-item .pub-journal { font-style: italic; }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+    .skill-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.4rem 1.6rem;
+    }
+    .skill-card-title {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .skill-card p { font-size: 0.9rem; color: #374151; }
+
+    /* ── LANGUAGES ── */
+    .lang-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+    .lang-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.4rem 1.1rem;
+      font-size: 0.88rem;
+    }
+    .lang-pill strong { color: var(--navy); font-weight: 600; }
+    .lang-pill span { color: var(--gray); font-size: 0.82rem; }
+
+    /* ── PHOTO BREAK ── */
+    #photo-break {
+      padding: 0;
+      height: 50vh;
+      min-height: 300px;
+      background: url('img/petra02.jpg') center 40% / cover no-repeat;
+      position: relative;
+    }
+    #photo-break::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(26,42,58,0.3), rgba(26,42,58,0.55));
+    }
+    .photo-break-caption {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      font-style: italic;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.83rem;
+    }
+    footer a { color: var(--teal-lt); text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(26,42,58,0.92);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      gap: 0.2rem;
+      padding: 0.6rem 1rem;
+    }
+    nav a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      transition: color 0.2s, background 0.2s;
+    }
+    nav a:hover { color: white; background: rgba(255,255,255,0.1); }
+
+    @media (max-width: 600px) {
+      .tl-item { grid-template-columns: 1fr; gap: 0.2rem; }
+      .tl-date { text-align: left; }
+      nav { gap: 0; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#publications">Publications</a>
+    <a href="#skills">Skills</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Geophysicist &amp; Researcher</p>
+      <h1 class="hero-name">Pablo Bordon</h1>
+      <p class="hero-tagline">
+        Applied near-surface geophysics · Data processing · Machine learning for subsurface interpretation
+      </p>
+      <div class="hero-links">
+        <a href="mailto:bordonpablo@gmail.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          bordonpablo@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/pablo-bordon" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/pablo-bordon
+        </a>
+        <a href="#" style="pointer-events:none; opacity:0.7;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Cottbus, Germany
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">scroll</div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">Profile</p>
+      <h2 class="section-title">Who I am</h2>
+      <p class="profile-text">
+        I'm a geophysicist and researcher with a focus on applied near-surface methods — ERT, EMI, GPR, and airborne radiometrics and magnetics.
+        My work sits at the intersection of field acquisition, signal processing, and data-driven interpretation:
+        I've spent a good part of my research applying supervised machine learning to detect subsurface features in GPR profiles,
+        and I continue to develop processing workflows that make geophysical data more interpretable and reproducible.
+        Currently based at Brandenburg University of Technology (BTU), I work on resource and environmental applications
+        across a range of geophysical techniques.
+      </p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label">Career</p>
+      <h2 class="section-title">Experience</h2>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-date">2024 — present</div>
+          <div class="tl-body">
+            <div class="tl-role">Researcher</div>
+            <div class="tl-org">Raw Materials and Resource Management Dept. · Brandenburgische Technische Universität (BTU)</div>
+            <ul>
+              <li>Data acquisition and processing across ERT, EM/EMI, GPR, airborne radiometrics, and magnetics.</li>
+              <li>Collaboration on applied geophysics projects for resource exploration and environmental monitoring.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-date">2021 — 2024</div>
+          <div class="tl-body">
+            <div class="tl-role">Director of Technical Project Coordination</div>
+            <div class="tl-org">Dept. of Applied Sciences and Technology · National University of Moreno</div>
+            <ul>
+              <li>Coordinated R&amp;D projects and technical implementation, supporting innovation and environmental sustainability using geophysical prospecting methods.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-date">2015 — 2020</div>
+          <div class="tl-body">
+            <div class="tl-role">Researcher — Doctoral Fellow</div>
+            <div class="tl-org">Applied and Environmental Geophysics Group · University of Buenos Aires</div>
+            <ul>
+              <li>Machine learning for geophysical interpretation: supervised detection of GPR patterns (pipe-flange reflections, mud-wall signatures).</li>
+              <li>Methods applied to EMI/ERT workflows to support interpretation and improve subsurface characterization.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <p class="section-label">Academic Background</p>
+      <h2 class="section-title">Education</h2>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-date">2015 — 2020</div>
+          <div class="tl-body">
+            <div class="tl-role">Ph.D. in Physics</div>
+            <div class="tl-org">University of Buenos Aires</div>
+            <ul>
+              <li>Thesis: <em>Methodological improvements in electrical and electromagnetic prospecting methods of subsurface geophysics.</em></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-date">2006 — 2014</div>
+          <div class="tl-body">
+            <div class="tl-role">Bachelor's &amp; Master's in Physics</div>
+            <div class="tl-org">University of Buenos Aires</div>
+            <ul>
+              <li>Thesis: <em>Methodologies to improve subsoil information obtained with coil-coil electromagnetic induction systems.</em></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO BREAK -->
+  <div id="photo-break">
+    <span class="photo-break-caption">Petra, Jordan</span>
+  </div>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="container">
+      <p class="section-label">Research Output</p>
+      <h2 class="section-title">Publications</h2>
+
+      <p class="pub-group-title">Journal Articles</p>
+      <div class="pub-list">
+        <div class="pub-item">
+          <strong>Bordón, P.</strong>, Bonomo, N., Martinelli, P. (2019).
+          Automatic detection of pipe-flange reflections in GPR data sections using supervised learning.
+          <span class="pub-journal">Journal of Applied Geophysics</span>, 170, 103856.
+          <a href="https://doi.org/10.1016/j.jappgeo.2019.103856" target="_blank" rel="noopener">DOI: 10.1016/j.jappgeo.2019.103856</a>
+        </div>
+        <div class="pub-item">
+          <strong>Bordón, P.</strong>, Martinelli, P., Zabala Medina, P., Bonomo, N., Ratto, N.R. (2020).
+          Automatic detection of mud-wall signatures in ground-penetrating radar data.
+          <span class="pub-journal">Archaeological Prospection</span>.
+          <a href="https://doi.org/10.1002/arp.1799" target="_blank" rel="noopener">DOI: 10.1002/arp.1799</a>
+        </div>
+      </div>
+
+      <p class="pub-group-title">Conference Proceedings</p>
+      <div class="pub-list">
+        <div class="pub-item">
+          <strong>Bordón, P.</strong>, Martinelli, P., Bonomo, N. (2018).
+          Automatic detection of reflections at ancient walls in GPR images using cascade classifiers.
+          <span class="pub-journal">Near Surface Geoscience 2018 (EAGE)</span>.
+          <a href="https://doi.org/10.3997/2214-4609.201802476" target="_blank" rel="noopener">DOI: 10.3997/2214-4609.201802476</a>
+        </div>
+        <div class="pub-item">
+          <strong>Bordón, P.</strong>, Martinelli, H.P., Bonomo, N.E. (2017).
+          Identification of pipe flanges in GPR images using Neural Networks.
+          <span class="pub-journal">Near Surface Geoscience 2017 (EAGE)</span>.
+          <a href="https://doi.org/10.3997/2214-4609.201702089" target="_blank" rel="noopener">DOI: 10.3997/2214-4609.201702089</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS & LANGUAGES -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">Toolkit</p>
+      <h2 class="section-title">Skills &amp; Languages</h2>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-card-title">Geophysical Software</div>
+          <p>ReflexW · Res2DInv · Oasis Montaj · EM1DFM</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">Programming</div>
+          <p>Python for scientific computing, data analysis, and reproducible geophysical workflows</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">GIS</div>
+          <p>QGIS · ArcGIS</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-title">Methods</div>
+          <p>ERT · EMI · GPR · Airborne radiometrics &amp; magnetics · Machine learning for pattern detection</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 2.5rem;">
+        <p class="section-label" style="margin-bottom: 0.8rem;">Languages</p>
+        <div class="lang-list">
+          <div class="lang-pill"><strong>Spanish</strong><span>Native</span></div>
+          <div class="lang-pill"><strong>English</strong><span>C1</span></div>
+          <div class="lang-pill"><strong>German</strong><span>A2</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Pablo Bordon · Cottbus, Brandenburg, Germany</p>
+    <p style="margin-top: 0.4rem;">
+      <a href="mailto:bordonpablo@gmail.com">bordonpablo@gmail.com</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/in/pablo-bordon" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+  </footer>
+
+</body>
+</html>
